@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios</title>
+</head>
+<body>
+    <h1>Registro de Usuarios</h1>
+    <form id="registerForm">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <button type="submit">Registrarse</button>
+    </form>
+
+    <ul id="userList"></ul>
+
+    <script>
+        // Función para agregar un nuevo usuario al archivo JSON
+        function agregarUsuario(username, email) {
+            fetch('usuarios.json')
+                .then(response => response.json())
+                .then(data => {
+                    const nuevoUsuario = {
+                        id: data.length + 1,
+                        username: username,
+                        email: email
+                    };
+                    data.push(nuevoUsuario);
+                    return data;
+                })
+                .then(data => {
+                    return fetch('guardar_usuarios.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                })
+                .then(() => {
+                    // Limpiar el formulario después de agregar el usuario
+                    document.getElementById('registerForm').reset();
+                    // Volver a cargar la lista de usuarios
+                    mostrarUsuarios();
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Función para mostrar la lista de usuarios
+        function mostrarUsuarios() {
+            fetch('usuarios.json')
+                .then(response => response.json())
+                .then(data => {
+                    const userList = document.getElementById('userList');
+                    userList.innerHTML = '';
+                    data.forEach(user => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `ID: ${user.id}, Usuario: ${user.username}, Email: ${user.email}`;
+                        userList.appendChild(listItem);
+                    });
+                });
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            agregarUsuario(username, email);
+        });
+
+        // Mostrar la lista de usuarios al cargar la página
+        mostrarUsuarios();
+    </script>
+</body>
+</html>

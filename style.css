@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: #ececec;
+    font-family: 'Source Sans 3', sans-serif;
+
+}
+
+
+header{
+    background-color: rgb(245, 245, 245);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.user-navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+
+}
+
+.logo{
+    font-size: 2rem;
+    font-weight: 1000;
+}
+
+.search-bar{
+    display: flex;
+    flex:0.8
+
+}
+
+.user-links{
+    display: flex;
+    gap: 1rem;
+}
+
+.user-links a{
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
+
+.user-links a:hover{
+    color: rgb(100, 100, 100);
+}
+
+.brands{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1em;
+
+}
+
+.brands img{
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+}
+
+
+.shopping-navbar{
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 0 20px rgba(44, 44, 44, 0.7);
+}
+
+.shopping-navbar ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.shopping-navbar ul li{
+    margin: 0 1rem;
+}
+
+.shopping-navbar ul li a{
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(7, 7, 7, 0.7);
+  }
+  
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    background-color: #1a1a1a;
+    animation: fadeOut 0.5s forwards;
+    color: white;
+  }
+  
+  .slider-index{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 8rem;
+    font-style: italic;
+    font-weight: 1000;
+  }
+  
+  .slider-text{
+    padding: 2rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  
+    h1{
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    p{
+      font-size: 1.2rem;
+    }
+    slider-buttons{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  .slider-buttons #buy{
+    background-color: #eeeeee;
+    color: rgb(14, 14, 14);
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .slider-buttons #cart{
+    background-color: #1f1f1f;
+    color: rgb(243, 243, 243);
+    border: white 1px solid;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  .slider img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .slide[data-status="active"] {
+    display: flex;
+    animation: fadeIn 0.8s forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+  
+  
+  .uibuttons{
+    background-color: #1a1a1a;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    
+  }
+  .uibuttons button {
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    background-color: #1a1a1a;
+    border: none;
+  
+    &:hover{
+      background-color: #2a2a2a;
+    }
+  }
+  
+
+
+
+.categories-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+}
+
+
+.discount-box {
+    background-color: rgb(32, 32, 32);
+       padding: 2%;
+       box-shadow: 0 0 20px rgba(7, 7, 7, 0.7);
+
+    .h1{
+           color: rgb(36, 36, 36);
+           text-align: left;
+           display: flex;
+           background-color: #f7f7f7;
+           border-radius: 6px;
+           padding: 16px;
+    }
+}
+
+ .discount {
+
+   display: flex;
+   flex-wrap: wrap;
+   height: 60vh;
+
+ }
+ 
+ .discount-item {
+   background-color: #f7f7f7;
+   flex: 1;
+   margin: 4px;
+   padding: 20px;
+   border-radius: 6px;
+   transition: flex 0.5s ease-in-out;
+   cursor: pointer;
+   &:hover {
+     background-color: #6aee49;
+   }
+
+ }
+ 
+
+ .discount-item{
+   #index{
+       color: #222222;
+       font-size: 3rem;
+       font-weight: 200;
+       text-align: left;
+       font-style: italic;
+   }
+
+   .text{
+       #name{
+           color: #222222;
+           font-size: 2rem;
+           font-weight: 200;
+           text-align: left;
+           display: none;
+       
+       }
+       #discount{
+           color: #222222;
+           font-size: 2rem;
+           font-weight: 200;
+           text-align: left;
+       }
+
+       #ogprice{
+           color: #222222;
+           font-size: 2rem;
+           font-weight: 200;
+           text-align: left;
+           display: none;
+
+       }
+
+       #disprice{
+           color: #222222;
+           font-size: 2rem;
+           font-weight: 200;
+           text-align: left;
+           display: none;
+       }
+
+       #category{
+           color: #222222;
+           font-size: 2rem;
+           font-weight: 200;
+           text-align: left;
+       }
+
+       #description{
+           color: #222222;
+           font-size: 2rem;
+           font-weight: 200;
+           text-align: left;
+           display: none;
+   }
+ }
+}
+
+ .discount-item.expanded {
+   flex: 8;
+ }
+ 
+.discount-item img{
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   border-radius: 6px;
+ }
+ 
+ .discount-item[data-status="default"] {
+   flex: 1;
+ }
+ 
+ .discount-item[data-status="compress"] {
+   flex: 1;
+ }
+ 
+ .discount-item[data-status="expand"] {
+   #name,#ogprice,#disprice,#description{
+        display: block;
+       }
+   flex: 8;
+}
+ 
+
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.footer-logo{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 8rem;
+    font-weight: 1000;
+    font-stretch: expanded;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    font-size: 1rem;
+}
+
+
+
+
+.map-container{
+  width: 100%;
+  height: 500px;
+}
+
+
